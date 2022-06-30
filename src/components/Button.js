@@ -5,17 +5,23 @@ class Button extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.handleButtonClick = this.handleButtonClick.bind(this);
   }
+
+    handleButtonClick = (e) => {
+      const { handleButtonClick } = this.props;
+      handleButtonClick(e.target.value);
+    }
 
     render = () => {
       const { label } = this.props;
-      return <button type="button">{label}</button>;
+      return <button onClick={this.handleButtonClick} type="button" value={label}>{label}</button>;
     }
 }
 
 Button.propTypes = {
   label: PropTypes.string.isRequired,
-  // operator: PropTypes.bool.isRequired,
+  handleButtonClick: PropTypes.func.isRequired,
 };
 
 export default Button;
