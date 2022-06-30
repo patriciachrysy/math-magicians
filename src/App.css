@@ -1,39 +1,52 @@
-.App {
-  text-align: center;
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.calculator-frame {
+  margin: auto;
+  width: 40%;
+  height: 400px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+}
+
+.screen-frame {
+  padding: 15px 5px;
+  text-align: right;
   color: white;
+  font-size: 25px;
+  background-color: #858293;
 }
 
-.App-link {
-  color: #61dafb;
+.keyboard-frame {
+  width: 100%;
+  height: 90%;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+.keyboard-frame button {
+  width: 25%;
+  height: 20%;
+  border: 1px solid #c4c4c4;
+  text-align: center;
+  color: black;
+  font-size: 15px;
+  background-color: #dfdfdf;
+}
 
-  to {
-    transform: rotate(360deg);
-  }
+.keyboard-frame :nth-child(4n),
+.keyboard-frame :last-child {
+  background-color: #fb8f30;
+}
+
+.keyboard-frame :nth-child(17) {
+  flex-grow: 2;
 }
