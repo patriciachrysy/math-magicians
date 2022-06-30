@@ -1,35 +1,44 @@
 import React from 'react';
 import Screen from './Screen';
 import Button from './Button';
+import calculate from '../logic/calculate';
 
 class Calculator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       screenValue: '0',
+      calculateObject: {
+        total: null,
+        next: null,
+        operation: null,
+      },
     };
-    this.keyBoard = [
-      { name: 'AC', isOperator: true },
-      { name: '+/-', isOperator: true },
-      { name: '%', isOperator: true },
-      { name: '/', isOperator: true },
-      { name: '7', isOperator: false },
-      { name: '8', isOperator: false },
-      { name: '9', isOperator: false },
-      { name: 'x', isOperator: true },
-      { name: '4', isOperator: false },
-      { name: '5', isOperator: false },
-      { name: '6', isOperator: false },
-      { name: '-', isOperator: true },
-      { name: '1', isOperator: false },
-      { name: '2', isOperator: false },
-      { name: '3', isOperator: false },
-      { name: '+', isOperator: true },
-      { name: '0', isOperator: false },
-      { name: '.', isOperator: true },
-      { name: '=', isOperator: true },
-    ];
+    this.keyBoard = ['AC', '+/-', '%', '÷', '7', '8', '9', 'x', '4', '5', '6', '-', '1', '2', '3', '+', '0', '.', '='];
+
+    this.handleButtonClick = this.handleButtonClick.bind(this);
   }
+
+    handleButtonClick = (buttonLabel) => {
+      const { calculateObject } = this.state;
+      const res = calculate(calculateObject, buttonLabel);
+      this.setState({
+        screenValue: this.setScreenValue(res).length > 0 ? this.setScreenValue(res) : '0',
+        calculateObject: res,
+      });
+    }
+
+    setScreenValue = (calcObj) => {
+      if (calcObj.total) {
+        return calcObj.total + (calcObj.operation ? calcObj.operation : '') + (calcObj.next ? calcObj.next : '');
+      }
+
+      if (calcObj.next) {
+        return (calcObj.next ? calcObj.next : '') + (calcObj.operation ? calcObj.operation : '');
+      }
+
+      return '0';
+    }
 
     render = () => {
       const { screenValue } = this.state;
@@ -39,7 +48,13 @@ class Calculator extends React.Component {
             <Screen value={screenValue} />
 
             <div className="keyboard-frame">
-              {this.keyBoard.map((elt) => <Button key={elt.name} label={elt.name} />)}
+              {this.keyBoard.map((elt) => (
+                <Button
+                  handleButtonClick={this.handleButtonClick}
+                  key={elt}
+                  label={elt}
+                />
+              ))}
             </div>
           </div>
         </div>
