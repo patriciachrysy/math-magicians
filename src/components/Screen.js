@@ -1,13 +1,24 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
 class Screen extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
     render = () => {
-        return (
-            <div class="screen-frame">
-                <h1>{this.props.value}</h1>
-            </div>
-        )
+      const { value } = this.props;
+      return (
+        <div className="screen-frame">
+          <span>{value}</span>
+        </div>
+      );
     }
 }
+
+Screen.propTypes = {
+  value: PropTypes.string.isRequired,
+};
+
+export default Screen;
