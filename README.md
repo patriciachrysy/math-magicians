@@ -18,7 +18,8 @@
 
 ## Live Demo
 
-[Live Demo Link]()
+[Live Demo Link on Heroku](https://patricia-math-magicians.herokuapp.com/)
+[Live Demo Link on Netlify](https://62c6e5ced5694820ae31c3d6--brilliant-otter-c7ee5f.netlify.app/)
 
 
 ## Getting Started
