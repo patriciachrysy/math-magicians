@@ -1,4 +1,4 @@
-import calculate from '../logic/calculate';  // You need to import the file you want to test
+import calculate from '../logic/calculate'; // You need to import the file you want to test
 
 test('reset the value when "AC" is clicked', () => {
   expect(calculate({ total: '100', next: null, operation: null }, 'AC')).toStrictEqual({ total: null, next: null, operation: null });
