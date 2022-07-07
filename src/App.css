@@ -67,17 +67,17 @@ header h1 {
   font-size: 70px;
 }
 
-ul{
+ul {
   list-style: none;
   display: flex;
   justify-content: space-between;
 }
 
-li{
+li {
   padding: 0 10px;
 }
 
-li a{
+li a {
   text-decoration: none;
   color: black;
 }
