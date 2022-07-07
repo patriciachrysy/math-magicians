@@ -26,6 +26,7 @@ function Calculator() {
 
   return (
     <div className="wrapper">
+      <h2>Let&lsquo;s do some math!</h2>
       <div className="calculator-frame">
         <Screen value={screenValue} />
 

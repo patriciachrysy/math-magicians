@@ -6,16 +6,14 @@ body {
 }
 
 .wrapper {
-  width: 100vw;
+  padding: 0 30px;
   height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
 }
 
 .calculator-frame {
-  margin: auto;
-  width: 40%;
+  width: 55%;
   height: 400px;
   display: flex;
   flex-direction: column;
